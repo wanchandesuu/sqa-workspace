@@ -2,14 +2,17 @@ package com.sqa.lab;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+@DisplayName("Shift Cipher Test")
 public class ShiftCipherTest {
 
     private final ShiftCipher cipher = new ShiftCipher();
 
-    @ParameterizedTest
+    @DisplayName("Test Encrypt Method")
+    @ParameterizedTest(name = "[{index}] Encrypt({0}, {1}) => {2}")
     @CsvSource({
         "ATTACK,17,RKKRTB",
         "HELLO,0,HELLO",
@@ -28,7 +31,8 @@ public class ShiftCipherTest {
         assertEquals(expected, cipher.encrypt(plainText, key));
     }
 
-    @ParameterizedTest
+    @DisplayName("Test Decrypt Method")
+    @ParameterizedTest(name = "[{index}] Decrypt({0}, {1}) => {2}")
     @CsvSource({
         "RKKRTB,17,ATTACK",
         "HELLO,0,HELLO",
