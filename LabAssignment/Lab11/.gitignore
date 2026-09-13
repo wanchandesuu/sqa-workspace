@@ -1,0 +1,6 @@
+.venv
+.DS_Store
+log.html
+output.xml
+report.html
+*.png
